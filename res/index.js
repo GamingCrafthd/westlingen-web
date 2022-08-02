@@ -3,22 +3,34 @@ const regex = {
     splitter: /[,;&]/
 }
 
+const companyLUT = {
+    "Westlinger Verkehrsbetriebe": "WVB",
+    "Bad Elchalber Verkehrsgesellschaft": "EVG",
+    "Historischer Nahverkehr e.V.": "HNV"
+}
+
+function UrlExists(url) {
+    var http = new XMLHttpRequest()
+    http.open('HEAD', url, true)
+    http.send()
+    return http.status == 200
+}
+
+var GetById = id => document.getElementById(id)
+
 document.getElementById("submit").onclick = () => {
-    var vehicles = document.getElementById("veh").value.split(regex.splitter)
+    const vehicles = GetById("veh").value.split(regex.splitter)
+    const company = GetById("company").value
+    const secure = GetById("secure").checked
+
     vehicles.forEach(vehicle => {
         if (!vehicle.match(regex.vehicleNumber)) {
             alert(vehicle + " ist keine richtige Fahrzeugnummer.")
             return
         }
-        var uri = `http${document.getElementById("secure").checked ? "s" : ""}://westlingen.gamingcraft.de/vehicles/WVB-Tw${vehicle}.veh`
-        if (UrlExists(uri))
-            window.location = uri
-    })
-}
 
-function UrlExists(url) {
-    var http = new XMLHttpRequest()
-    http.open('HEAD', url, false)
-    http.send()
-    return http.status != 404
+        var url = `http${secure ? "s" : ""}://westlingen.gamingcraft.de/vehicles/${companyLUT[company]}-Tw${vehicle}.veh`
+        if (UrlExists(url)) window.location = url
+        else console.warn(`Couldn't find vehicle ${vehicle} of the ${companyLUT[company]}`)
+    })
 }
