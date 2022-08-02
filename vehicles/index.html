@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WVV Fahrzeug-Datenbank</title>
+    <link rel="stylesheet" href="/res/index.css">
+</head>
+
+<body>
+    <select id="company">
+        <option>Westlinger Verkehrsbetriebe</option>
+        <option>Bad Elchalber Verkehrsgesellschaft</option>
+        <option>Historischer Nahverkehr e.V.</option>
+    </select><br>
+    <textarea id="veh" placeholder="z.B. 101 oder 102,103,..."></textarea><br>
+    <input type="checkbox" id="secure" checked disabled>
+    <label for="secure">HTTPS verwenden</label><br>
+    <button id="submit">Herunterladen</button>
+
+    <p class="disclaimer">
+        Hinweis: Alle hier aufgelisteten Betriebe sind fiktiv.
+    </p>
+
+    <img src="/res/logo.png" class="logo">
+
+    <script src="/res/index.js"></script>
+</body>
+
+</html>
