@@ -1,0 +1,16 @@
+* {
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+}
+
+.logo {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    width: 5%;
+}
+
+.disclaimer {
+    position: fixed;
+    bottom: 0;
+    right: 16px;
+}
