@@ -29,8 +29,11 @@ document.getElementById("submit").onclick = () => {
             return
         }
 
-        var url = `http${secure ? "s" : ""}://westlingen.gamingcraft.de/vehicles/${companyLUT[company]}-Tw${vehicle}.veh`
-        if (UrlExists(url)) window.location = url
-        else console.warn(`Couldn't find vehicle ${vehicle} of the ${companyLUT[company]}`)
+        // TODO:
+        // (Remember to skip empty lines)
+
+        //var url = `http${secure ? "s" : ""}://westlingen.gamingcraft.de/vehicles/${companyLUT[company]}-Tw${vehicle}.veh`
+        //if (UrlExists(url)) window.location = url
+        //else console.warn(`Couldn't find vehicle ${vehicle} of the ${companyLUT[company]}`)
     })
 }
